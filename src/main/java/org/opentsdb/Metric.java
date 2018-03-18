@@ -4,31 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Metric {
-
     private String metric;
     private int timestamp;
     private Object value;
     private Map<String, String> tags;
 
-    public Metric(String metric) {
+    Metric(String metric) {
         this.metric = metric;
         this.tags = new HashMap<>();
-    }
-
-    public String getMetric() {
-        return this.metric;
-    }
-
-    public int getTimestamp() {
-        return this.timestamp;
-    }
-
-    public Object getValue() {
-        return this.value;
-    }
-
-    public Map<String, String> getTags() {
-        return this.tags;
     }
 
     public Metric withTag(String name, String value) {
@@ -43,6 +26,22 @@ public class Metric {
 
     public Metric withValue(int timestamp, double value) {
         return setValue(timestamp, value);
+    }
+
+    String getMetric() {
+        return this.metric;
+    }
+
+    int getTimestamp() {
+        return this.timestamp;
+    }
+
+    Object getValue() {
+        return this.value;
+    }
+
+    Map<String, String> getTags() {
+        return this.tags;
     }
 
     private Metric setValue(int timestamp, Object value) {

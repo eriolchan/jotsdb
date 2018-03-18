@@ -1,21 +1,16 @@
 package org.opentsdb;
 
 public class Response {
-
     private int code;
     private String message;
     private DataPoint[] dataPoints;
 
-    public Response(int code) {
+    Response(int code) {
         this.code = code;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setDataPoints(DataPoint[] dataPoints) {
-        this.dataPoints = dataPoints;
+    public boolean isSuccess() {
+        return this.code == 200 || this.code == 204;
     }
 
     public int getCode() {
@@ -26,21 +21,24 @@ public class Response {
         return this.message;
     }
 
+    void setMessage(String message) {
+        this.message = message;
+    }
+
     public DataPoint[] getDataPoints() {
         return this.dataPoints;
     }
 
-    public boolean isSuccess() {
-        return this.code == 200 || this.code == 204;
+    void setDataPoints(DataPoint[] dataPoints) {
+        this.dataPoints = dataPoints;
     }
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("Response{");
-        sb.append("code=").append(this.code);
-        sb.append(", message=").append(this.message);
-        sb.append("}");
+        String sb = "Response{" + "code=" + this.code +
+                ", message=" + this.message +
+                "}";
 
-        return sb.toString();
+        return sb;
     }
 }

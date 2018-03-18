@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MetricBuilder {
-
     private List<Metric> metrics;
 
     public MetricBuilder() {
@@ -18,7 +17,15 @@ public class MetricBuilder {
         return metric;
     }
 
-    public List<Metric> build() {
+    public void clear() {
+        this.metrics.clear();
+    }
+
+    public int size() {
+        return this.metrics.size();
+    }
+
+    List<Metric> build() {
         for (Metric metric : this.metrics) {
             if (metric.getTags().size() < 1) {
                 throw new IllegalArgumentException(
@@ -27,13 +34,5 @@ public class MetricBuilder {
         }
 
         return this.metrics;
-    }
-
-    public void clear() {
-        this.metrics.clear();
-    }
-
-    public int size() {
-        return this.metrics.size();
     }
 }

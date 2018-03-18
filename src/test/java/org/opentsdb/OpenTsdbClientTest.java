@@ -1,8 +1,7 @@
 package org.opentsdb;
 
 public class OpenTsdbClientTest {
-
-    private static final String URI = "http://localhost:4242";
+    private static final String URI = "http://10.1.1.1:4242";
 
     public static void main(String[] args) {
         testPut(URI);

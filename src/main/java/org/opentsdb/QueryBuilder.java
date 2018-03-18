@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class QueryBuilder {
-
     private static final String CHARSET = "UTF-8";
 
     private int start;
